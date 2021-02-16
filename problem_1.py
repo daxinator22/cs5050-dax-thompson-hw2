@@ -1,6 +1,6 @@
 A = [1, 2, 3, 4, 4, 19]
 B = [1, 2, 2, 4, 4, 5]
-x = 24
+x = 23
 
 def find_B_sum(A, B, x):
     if len(B) == 0:
@@ -28,7 +28,9 @@ def find_sum(A, B, x):
 
 
     else:
-        found = find_B_sum(A, B, x)
+        if find_B_sum(A, B, x):
+            return True
+
         midA = int(len(A) / 2)
         if midA == 0:
             midA = 1
@@ -36,9 +38,9 @@ def find_sum(A, B, x):
         if midA < len(A) and A[midA] + B[0] > x:
             find_sum(A[:midA], B, x)
 
-        elif not :
-            return find_B_sum(A[midA:], B,  x)
+        else:
+            return find_sum(A[midA:], B,  x)
     
 
 
-find_sum(A, B, x)
+find_sum(B, A, x)
