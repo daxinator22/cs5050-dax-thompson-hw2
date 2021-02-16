@@ -1,20 +1,29 @@
 A = [1, 2, 3, 4, 19]
 B = [1, 2, 3, 4, 5]
-x = 0
+x = 6
+counter = 0
 
-def find_sum(A, B, x, startA, startB):
-    if startA >= len(A):
-        print('No solution was found')
+def find_B_sum(A, B, x):
+    if len(B) == 0:
+        return
+    
+    if B[0] + A[0] == x:
+        print(f'Found solution at {A[0]} and {B[0]}')
         return
 
-    if A[startA] + B[startB] == x:
-        print(f'Found solution at A[{startA}] and B[{startB}]')
-        return
-
-    elif startB + 1 == len(B):
-        find_sum(A, B, x, startA + 1, 0)
-        
     else:
-        find_sum(A, B, x, startA, startB + 1)
+        find_B_sum(A, B[1:], x)
 
-find_sum(A, B, x, 0, 0)
+def find_sum(A, B, x):
+
+    if len(A) == 0:
+        return
+
+
+    else:
+        find_B_sum(A, B, x)
+        find_sum(A[1:], B, x)
+    
+
+
+find_sum(B, A, x)
