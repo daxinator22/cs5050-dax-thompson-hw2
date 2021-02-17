@@ -41,6 +41,14 @@ def find_sum(A, B, x):
         else:
             return find_sum(A[midA:], B,  x)
     
+def print_divide(A, B):
+    if len(A) == 0:
+        return ''
+    
+    midA = int(len(A) / 2)
+    if midA == 0:
+        return f'A:{A[midA]} B:{B[midA]} '
+    else:
+        return print_divide(A[:midA], B[:midA]) + print_divide(A[midA:], B[midA:])
 
-
-find_sum(B, A, x)
+print(print_divide(A, B))
